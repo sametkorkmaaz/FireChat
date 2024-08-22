@@ -9,4 +9,5 @@ target 'FireChat' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseDatabase'
+  
 end
