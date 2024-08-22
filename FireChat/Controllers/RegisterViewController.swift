@@ -17,14 +17,13 @@ class RegisterViewController: UIViewController {
         
         if let email = emailTextfield.text, let password = passwordTextfield.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if error != nil {
+                if let e = error {
                     AlertManager.shared.showAlert(title: "Hata oluştu", message: error?.localizedDescription ?? "Bilinmeyen hata", viewController: self)
-                }
-                else {
-                    self.performSegue(withIdentifier: "RegisterToChat", sender: nil)
+                } else {
+                    //Navigate to the ChatViewController
+                    self.performSegue(withIdentifier: K.registerSegue, sender: self)
                 }
             }
-            
         }
     }
     
